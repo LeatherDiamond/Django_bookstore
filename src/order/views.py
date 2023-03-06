@@ -4,6 +4,7 @@ from . import forms, models
 from carts import models as carts_models
 from django.urls import reverse_lazy
 from trycourier import Courier
+from proj import local_settings
 
 # Create your views here.
 
@@ -30,7 +31,7 @@ class CreateOrderView(generic.FormView):
             status=status,
             user=user,
         )
-        client = Courier(auth_token="pk_prod_ZY5TQ360EZ42B4J8414GT35WD75B")
+        client = local_settings.courier_client
         resp = client.send_message(
             message={
                 "to": {
