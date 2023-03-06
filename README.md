@@ -57,7 +57,7 @@ python manage.py runserver
 
 ## Detailed functionality description.
 
-![This is an image](https://github.com/LeatherDiamond/ITacademy/blob/master/Diagram%20of%20the%20ordering%20process.drawio.svg)
+![This is an image](https://github.com/LeatherDiamond/ITacademy/blob/d827cf1173d5f6a7e579be41d17365d2dcdb83ef/Diagram%20of%20the%20ordering%20process.svg)
 
 
 ## Why should you try it?
