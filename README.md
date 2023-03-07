@@ -15,6 +15,7 @@
    * ***[Directories](#11-directories)***
 * ***[How to start?](#how-to-start)***
 * ***[Why should you try it?](#why-should-you-try-it)***
+* ***[License](#license)***
 
 
 # Project description
@@ -253,3 +254,8 @@ python manage.py runserver
 # Why should you try it?
 
 ***It's a great project that will meet most customer needs, is simple and easy to use, and has the rich functionality that an online shop so desperately needs.***
+
+
+# License
+
+***This project is licensed under the MIT License - see the [LICENSE](https://github.com/LeatherDiamond/Django_bookstore/blob/master/LICENCE) file for details.***
