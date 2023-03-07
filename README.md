@@ -253,7 +253,7 @@ python manage.py runserver
 
 # Why should you try it?
 
-***It's a great project that will meet most customer needs, is simple and easy to use, and has the rich functionality that an online shop so desperately needs.***
+***It's a powerful application that allows you in a few easy steps to set up a full-scale online shop that has an intuitive and concise interface and will satisfy most customers and owners needs cause it's easy-to-use and has the rich functionality that an online shop so desperately needs.***
 
 
 # License
