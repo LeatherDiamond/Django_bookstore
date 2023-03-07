@@ -206,7 +206,7 @@ Applied technologies: Python, SQLite, Django, HTML, CSS, JavaScript.
 
 **1. Clone current repository on your local machine:**
 ```
-git clone https://github.com/LeatherDiamond/ITacademy.git
+git clone https://github.com/LeatherDiamond/Django_bookstore.git
 ```
 
 **2. Install all requirements from "requirements.txt".**
