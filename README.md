@@ -26,6 +26,8 @@ The bookstore enables shop personnel to receive and process orders and provides 
 Applied technologies: Python, SQLite, Django, HTML, CSS, JavaScript.
 
 
+***NOTE:*** *The project contains a database file in the directory src->proj. This database is just an example and contains 10 products as a demonstration of the functionality of the web application.*
+
 # Detailed functionality description
 
 ## 1. Shop roles and users
