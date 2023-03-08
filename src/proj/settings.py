@@ -128,10 +128,10 @@ STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
 STATIC_URL = "static/"
-STATIC_ROOT = '/home/AlexanderDovguchits/ITacademy/src/static'
+# STATIC_ROOT = '/home/AlexanderDovguchits/ITacademy/src/static'
 
 MEDIA_URL = "media/"
-MEDIA_ROOT = '/home/AlexanderDovguchits/ITacademy/src/media'
+# MEDIA_ROOT = '/home/AlexanderDovguchits/ITacademy/src/media'
 MEDIA_ROOT = BASE_DIR / "media"
 
 # Default primary key field type
