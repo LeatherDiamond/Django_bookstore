@@ -236,17 +236,13 @@ pip install -r requirements.txt
 ```
 python manage.py migrate
 ```
-**5. Collect static files:**
-```
-python manage.py collectstatic
-```
 
-**6. Create a superuser to have access to the admin panel.**
+**5. Create a superuser to have access to the admin panel.**
 ```
 python manage.py createsuperuser
 ```
 
-***7. Launch the project on a development server to see all the functionality before deploying it on real server.***
+***6. Launch the project on a development server to see all the functionality before deploying it on real server.***
 ```
 python manage.py runserver
 ```
