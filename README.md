@@ -1,6 +1,7 @@
 # Navigation
  
 * ***[Project description](#project-description)***
+   * ***[Notes](#notes)***
 * ***[Detailed functionality description](#detailed-functionality-description):***
    * ***[Shop roles and users](#1-shop-roles-and-users)***
    * ***[User profiles](#2-user-profiles)***
@@ -26,8 +27,9 @@ The bookstore enables shop personnel to receive and process orders and provides 
 
 Applied technologies: Python, SQLite, Django, HTML, CSS, JavaScript.
 
-
-***NOTE:*** *The project contains a database file in the directory ***src->proj***. This database is just an example and contains 10 products as a demonstration of the functionality of the web application.*
+> ###### NOTES:
+> * *The project contains a database file in the directory ***src->proj***. This database is just an example and contains 10 products as a demonstration of the functionality of the web application.*
+> * *You can familiarize with deployed version of the project by the following [link](https://alexanderdovguchits.pythonanywhere.com/).*
 
 # Detailed functionality description
 
