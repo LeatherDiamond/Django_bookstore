@@ -214,16 +214,8 @@ git clone https://github.com/LeatherDiamond/Django_bookstore.git
 ```
 pip install -r requirements.txt
 ```
-**3. Apply all migrations:**
-```
-python manage.py migrate
-```
-**4. Collect static files:**
-```
-python manage.py collectstatic
-```
 
-**5. Provide mandatory data in rhe following files:**
+**3. Provide mandatory data in rhe following files:**
  - [x] settings.py:
     - Django SECRET_KEY;
     - SOCIAL_AUTH_GOOGLE_OAUTH2_KEY;
@@ -239,6 +231,15 @@ python manage.py collectstatic
       - line 47 - link (Enter link that you want to be displayed in text of notification mail);
       
 ***Note that *"Courier secret token"* will be available only after following a few steps on [Courier website](https://www.courier.com/).***
+
+**4. Apply all migrations:**
+```
+python manage.py migrate
+```
+**5. Collect static files:**
+```
+python manage.py collectstatic
+```
 
 **6. Create a superuser to have access to the admin panel.**
 ```
