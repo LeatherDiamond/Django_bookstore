@@ -101,7 +101,7 @@ Applied technologies: Python, SQLite, Django, HTML, CSS, JavaScript.
             
    * ***2.2*** *Employee and administrator profile:*
        * ***2.2.1*** *Consists of fields:*
-           * ***2.2.1.1*** *Contains the same fields as the Employee profile;*
+           * ***2.2.1.1*** *Contains the same fields as the Customer profile;*
        * ***2.2.2*** *Information displayed in profile:*
            * ***2.2.2.1*** *All data from paragraph 2.2.1;*
 
@@ -201,7 +201,7 @@ Applied technologies: Python, SQLite, Django, HTML, CSS, JavaScript.
 
    * ***11.1*** *Elements of the directories are used as standard values to be substituted into the forms fields;*
    * ***11.2*** *Implemented a separate module for directories;*
-   * ***11.3*** *Elements of the directories can be edited by users having the "Employee" role in the administrative portal (paragraph 8);*
+   * ***11.3*** *Elements of the directories can be edited by users having the "Employee" role in the administrative portal ([paragraph 8](#8-administrative-portal));*
    * ***11.4*** *Each directory stores in a separate table in the database of directories module;*
 
 
@@ -244,7 +244,7 @@ python manage.py migrate
 python manage.py createsuperuser
 ```
 
-***6. Launch the project on a development server to see all the functionality before deploying it on real server.***
+**6. Launch the project on a development server to see all the functionality before deploying it on real server.**
 ```
 python manage.py runserver
 ```
