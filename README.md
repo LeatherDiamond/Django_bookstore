@@ -25,7 +25,13 @@ Web applicaton of a bookstore intended for the sale of paper books online.
 The bookstore is a showcase of available products (catalogue) and provides all necessary information and tools for choosing and ordering goods.
 The bookstore enables shop personnel to receive and process orders and provides the possibility for the customers to follow the status of their orders.
 
-Applied technologies: Python, SQLite, Django, HTML, CSS, JavaScript.
+Applied technologies: 
+- Python (>=3.9.7), 
+- SQLite, 
+- Django (>=4.1.1), 
+- HTML, 
+- CSS, 
+- JavaScript.
 
 > ###### NOTES:
 > * *The project contains a database file in the directory ***src->proj***. This database is just an example and contains 10 products as a demonstration of the functionality of the web application.*
@@ -212,12 +218,18 @@ Applied technologies: Python, SQLite, Django, HTML, CSS, JavaScript.
 git clone https://github.com/LeatherDiamond/Django_bookstore.git
 ```
 
-**2. Install all requirements from "requirements.txt".**
+**2. Create and activate virtual environment on your machine:**
+```
+python -m venv environment_name
+.\env\Scripts\activate
+```
+
+**3. Install all requirements from "requirements.txt".**
 ```
 pip install -r requirements.txt
 ```
 
-**3. Provide mandatory data in rhe following files:**
+**4. Provide mandatory data in rhe following files:**
  - [x] settings.py:
     - Django SECRET_KEY;
     - SOCIAL_AUTH_GOOGLE_OAUTH2_KEY;
@@ -234,17 +246,17 @@ pip install -r requirements.txt
       
 ***Note that *"Courier secret token"* will be available only after following a few steps on [Courier website](https://www.courier.com/).***
 
-**4. Apply all migrations:**
+**5. Apply all migrations:**
 ```
 python manage.py migrate
 ```
 
-**5. Create a superuser to have access to the admin panel.**
+**6. Create a superuser to have access to the admin panel.**
 ```
 python manage.py createsuperuser
 ```
 
-**6. Launch the project on a development server to see all the functionality before deploying it on real server.**
+**7. Launch the project on a development server to see all the functionality before deploying it on real server.**
 ```
 python manage.py runserver
 ```
