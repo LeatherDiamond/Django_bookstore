@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("references", "0006_rename_name1_bookauthor_name_and_more"),
     ]

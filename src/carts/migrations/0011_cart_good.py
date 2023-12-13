@@ -5,7 +5,6 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("product_card", "0011_book_description"),
         ("carts", "0010_alter_cart_customer"),

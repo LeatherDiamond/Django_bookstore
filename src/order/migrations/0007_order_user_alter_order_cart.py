@@ -6,7 +6,6 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("carts", "0016_alter_booksincart_cart"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),

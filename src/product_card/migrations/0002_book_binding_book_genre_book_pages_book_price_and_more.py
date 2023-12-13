@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         (
             "references",
@@ -17,17 +16,13 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="book",
             name="binding",
-            field=models.CharField(
-                default="hard cover", max_length=30, verbose_name="Binding"
-            ),
+            field=models.CharField(default="hard cover", max_length=30, verbose_name="Binding"),
             preserve_default=False,
         ),
         migrations.AddField(
             model_name="book",
             name="genre",
-            field=models.ManyToManyField(
-                to="references.bookgenre", verbose_name="Genre"
-            ),
+            field=models.ManyToManyField(to="references.bookgenre", verbose_name="Genre"),
         ),
         migrations.AddField(
             model_name="book",
@@ -38,32 +33,24 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="book",
             name="price",
-            field=models.DecimalField(
-                decimal_places=2, default=15, max_digits=5, verbose_name="Book price"
-            ),
+            field=models.DecimalField(decimal_places=2, default=15, max_digits=5, verbose_name="Book price"),
             preserve_default=False,
         ),
         migrations.AddField(
             model_name="book",
             name="publishing_year",
-            field=models.CharField(
-                default=2022, max_length=11, verbose_name="Publishing year"
-            ),
+            field=models.CharField(default=2022, max_length=11, verbose_name="Publishing year"),
             preserve_default=False,
         ),
         migrations.AddField(
             model_name="book",
             name="series",
-            field=models.ManyToManyField(
-                to="references.bookseries", verbose_name="Series"
-            ),
+            field=models.ManyToManyField(to="references.bookseries", verbose_name="Series"),
         ),
         migrations.AlterField(
             model_name="book",
             name="author",
-            field=models.ManyToManyField(
-                to="references.bookauthor", verbose_name="Author/Authors"
-            ),
+            field=models.ManyToManyField(to="references.bookauthor", verbose_name="Author/Authors"),
         ),
         migrations.AlterField(
             model_name="book",

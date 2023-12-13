@@ -4,30 +4,37 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("references", "0011_remove_bookseries_book_name"),
         ("product_card", "0004_remove_book_author_remove_book_genre_and_more"),
     ]
 
     operations = [
-        migrations.RemoveField(model_name="book", name="author",),
-        migrations.RemoveField(model_name="book", name="genre",),
-        migrations.RemoveField(model_name="book", name="publishing_house",),
-        migrations.RemoveField(model_name="book", name="series",),
+        migrations.RemoveField(
+            model_name="book",
+            name="author",
+        ),
+        migrations.RemoveField(
+            model_name="book",
+            name="genre",
+        ),
+        migrations.RemoveField(
+            model_name="book",
+            name="publishing_house",
+        ),
+        migrations.RemoveField(
+            model_name="book",
+            name="series",
+        ),
         migrations.AddField(
             model_name="book",
             name="author",
-            field=models.ManyToManyField(
-                to="references.bookauthor", verbose_name="Author/Authors"
-            ),
+            field=models.ManyToManyField(to="references.bookauthor", verbose_name="Author/Authors"),
         ),
         migrations.AddField(
             model_name="book",
             name="genre",
-            field=models.ManyToManyField(
-                to="references.bookgenre", verbose_name="Genre"
-            ),
+            field=models.ManyToManyField(to="references.bookgenre", verbose_name="Genre"),
         ),
         migrations.AddField(
             model_name="book",
@@ -40,8 +47,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="book",
             name="series",
-            field=models.ManyToManyField(
-                to="references.bookseries", verbose_name="Series"
-            ),
+            field=models.ManyToManyField(to="references.bookseries", verbose_name="Series"),
         ),
     ]

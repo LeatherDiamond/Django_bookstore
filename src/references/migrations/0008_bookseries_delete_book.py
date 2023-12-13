@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("references", "0007_book"),
     ]
@@ -29,5 +28,7 @@ class Migration(migrations.Migration):
                 ),
             ],
         ),
-        migrations.DeleteModel(name="Book",),
+        migrations.DeleteModel(
+            name="Book",
+        ),
     ]

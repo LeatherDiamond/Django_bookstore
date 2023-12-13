@@ -6,7 +6,6 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -55,9 +54,7 @@ class Migration(migrations.Migration):
                 ("quantity", models.IntegerField(default=1, verbose_name="Quantity")),
                 (
                     "price",
-                    models.DecimalField(
-                        decimal_places=2, max_digits=5, verbose_name="Price"
-                    ),
+                    models.DecimalField(decimal_places=2, max_digits=5, verbose_name="Price"),
                 ),
                 (
                     "book",

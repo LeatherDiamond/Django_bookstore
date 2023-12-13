@@ -4,7 +4,6 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         (
             "references",
@@ -13,5 +12,8 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RemoveField(model_name="bookgenre", name="book_name",),
+        migrations.RemoveField(
+            model_name="bookgenre",
+            name="book_name",
+        ),
     ]

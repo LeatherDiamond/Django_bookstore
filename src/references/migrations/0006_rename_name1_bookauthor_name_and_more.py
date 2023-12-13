@@ -4,21 +4,39 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("references", "0005_bookauthor_name3_bookauthor_surname3"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name="bookauthor", old_name="name1", new_name="name",
+            model_name="bookauthor",
+            old_name="name1",
+            new_name="name",
         ),
         migrations.RenameField(
-            model_name="bookauthor", old_name="surname1", new_name="surname",
+            model_name="bookauthor",
+            old_name="surname1",
+            new_name="surname",
         ),
-        migrations.RemoveField(model_name="bookauthor", name="description",),
-        migrations.RemoveField(model_name="bookauthor", name="name2",),
-        migrations.RemoveField(model_name="bookauthor", name="name3",),
-        migrations.RemoveField(model_name="bookauthor", name="surname2",),
-        migrations.RemoveField(model_name="bookauthor", name="surname3",),
+        migrations.RemoveField(
+            model_name="bookauthor",
+            name="description",
+        ),
+        migrations.RemoveField(
+            model_name="bookauthor",
+            name="name2",
+        ),
+        migrations.RemoveField(
+            model_name="bookauthor",
+            name="name3",
+        ),
+        migrations.RemoveField(
+            model_name="bookauthor",
+            name="surname2",
+        ),
+        migrations.RemoveField(
+            model_name="bookauthor",
+            name="surname3",
+        ),
     ]

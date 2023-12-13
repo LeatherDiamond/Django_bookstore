@@ -6,15 +6,20 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
         ("carts", "0008_cart_good_cart_quantity_alter_cart_customer"),
     ]
 
     operations = [
-        migrations.RemoveField(model_name="cart", name="good",),
-        migrations.RemoveField(model_name="cart", name="quantity",),
+        migrations.RemoveField(
+            model_name="cart",
+            name="good",
+        ),
+        migrations.RemoveField(
+            model_name="cart",
+            name="quantity",
+        ),
         migrations.AlterField(
             model_name="cart",
             name="customer",

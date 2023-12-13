@@ -4,11 +4,13 @@ from django.db import migrations
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("references", "0010_remove_bookgenre_book_name"),
     ]
 
     operations = [
-        migrations.RemoveField(model_name="bookseries", name="book_name",),
+        migrations.RemoveField(
+            model_name="bookseries",
+            name="book_name",
+        ),
     ]

@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("catalog", "0003_alter_appuser_index"),
     ]
@@ -26,13 +25,13 @@ class Migration(migrations.Migration):
             field=models.CharField(max_length=30, null=True),
         ),
         migrations.AlterField(
-            model_name="appuser", name="index", field=models.IntegerField(null=True),
+            model_name="appuser",
+            name="index",
+            field=models.IntegerField(null=True),
         ),
         migrations.AlterField(
             model_name="appuser",
             name="phone",
-            field=models.IntegerField(
-                help_text="Enter the number in international format.", null=True
-            ),
+            field=models.IntegerField(help_text="Enter the number in international format.", null=True),
         ),
     ]
