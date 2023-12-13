@@ -1,12 +1,12 @@
-from django.db import models
-from django.utils import timezone
-from product_card.models import Book
-from django.contrib.auth.models import User
 from django.contrib.auth.models import (
     AbstractBaseUser,
-    UserManager,
     PermissionsMixin,
+    UserManager,
 )
+from django.db import models
+from django.utils import timezone
+
+from product_card.models import Book
 
 
 class Comment(models.Model):

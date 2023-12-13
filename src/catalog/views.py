@@ -1,12 +1,13 @@
-from django.shortcuts import render
-from django.views import generic, View
-from product_card.models import Book
 from django.core.paginator import Paginator
-from .forms import CommentForm
-from django.shortcuts import get_object_or_404, render
-from .models import Comment
-from django.http import HttpResponse, HttpResponseRedirect
 from django.db.models import Q
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404, render
+from django.views import View, generic
+
+from product_card.models import Book
+
+from .forms import CommentForm
+from .models import Comment
 
 
 class SearchResultView(View):
