@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "django-bookstore"
+name = "bookstore"
 version = "1.2.0"
 description = "Web application of a bookstore intended for the sale of paper books online."
 authors = ["Aliaksandr Dauhuchyts <alexander.dovguchits@gmail.com>"]
