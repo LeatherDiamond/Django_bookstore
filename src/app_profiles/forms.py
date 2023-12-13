@@ -1,7 +1,8 @@
 from catalog.models import AppUser
+
 from django.forms import (
-    ModelForm,
     CharField,
+    ModelForm,
 )
 
 

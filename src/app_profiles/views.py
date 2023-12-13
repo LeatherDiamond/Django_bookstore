@@ -1,3 +1,5 @@
+from app_profiles.forms import ProfileForm
+
 from django.http import (
     HttpResponseRedirect,
 )
@@ -8,7 +10,6 @@ from django.shortcuts import (
 from django.urls import reverse_lazy
 from django.views import generic
 
-from app_profiles.forms import ProfileForm
 from order.models import (
     Order,
     Status,
