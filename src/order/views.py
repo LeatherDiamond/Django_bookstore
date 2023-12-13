@@ -4,7 +4,7 @@ from . import forms, models
 from carts import models as carts_models
 from django.urls import reverse_lazy
 from trycourier import Courier
-from proj import local_settings
+
 
 # Create your views here.
 
@@ -31,23 +31,23 @@ class CreateOrderView(generic.FormView):
             status=status,
             user=user,
         )
-        client = local_settings.courier_client
-        resp = client.send_message(
-            message={
-                "to": {
-                    "email": "customerservicewawbookspl@gmail.com"
-          },
-                "content": {
-                "title": "New order",
-                "body": "Hey! {{user}} {{email}} just placed a new order. Please check administrative portal to see details. {{link}}"
-          },
-          "data":{
-            "user": user.name + ' ' + user.surname,
-            "email": user.email,
-            "link": 'https://alexanderdovguchits.pythonanywhere.com/admin_portal/'
-          }
-        }
-      )
+    #     client = local_settings.courier_client
+    #     resp = client.send_message(
+    #         message={
+    #             "to": {
+    #                 "email": "customerservicewawbookspl@gmail.com"
+    #       },
+    #             "content": {
+    #             "title": "New order",
+    #             "body": "Hey! {{user}} {{email}} just placed a new order. Please check administrative portal to see details. {{link}}"
+    #       },
+    #       "data":{
+    #         "user": user.name + ' ' + user.surname,
+    #         "email": user.email,
+    #         "link": 'https://alexanderdovguchits.pythonanywhere.com/admin_portal/'
+    #       }
+    #     }
+    #   )
         self.request.session.delete('cart_id')
         if self.request.user.is_authenticated:
             cart_id = self.request.session.get('cart_id')
