@@ -1,12 +1,14 @@
-from django.shortcuts import render, redirect
-from django.views import generic
-from product_card.models import Book
-from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponseRedirect
 from django.contrib import messages
-from .forms import NewUserForm
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import Group
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+from django.views import generic
+
+from product_card.models import Book
+
+from .forms import NewUserForm
 
 
 def logout_request(request):
@@ -21,7 +23,6 @@ def login_request(request):
         if form.is_valid():
             username = form.cleaned_data.get("username")
             password = form.cleaned_data.get("password")
-            print(username, password)
             user = authenticate(username=username, password=password)
             if user is not None:
                 login(request, user)

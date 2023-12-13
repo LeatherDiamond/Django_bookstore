@@ -1,7 +1,9 @@
-from django.contrib import admin
 from catalog.models import AppUser
+
+from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from .forms import UserChangeForm, MyUserCreationForm
+
+from .forms import MyUserCreationForm, UserChangeForm
 
 
 class UserAdmin(BaseUserAdmin):

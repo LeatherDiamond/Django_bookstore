@@ -1,6 +1,7 @@
-from django import forms
-from django.contrib.auth.forms import UserCreationForm, ReadOnlyPasswordHashField
 from catalog.models import AppUser
+
+from django import forms
+from django.contrib.auth.forms import ReadOnlyPasswordHashField, UserCreationForm
 from django.core.exceptions import ValidationError
 
 
