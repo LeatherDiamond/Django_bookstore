@@ -1,10 +1,10 @@
-from django.db import models
-from django.contrib.sessions.models import Session
 from carts.models import (
     Cart,
-    BooksInCart,
 )
+
 from django.contrib.auth import get_user_model
+from django.contrib.sessions.models import Session
+from django.db import models
 
 
 User = get_user_model()

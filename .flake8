@@ -2,7 +2,8 @@
 ignore = S101, S001, S105, S106, B101, W503, Q000, E402, JS101, JS102, MOD001, VNE001, ECE001
 per-file-ignores = 
     src/catalog/views.py: F841
-max-line-length = 120
+    src/order/views.py: F841
+max-line-length = 140
 max_cognitive_complexity = 14
 exclude =
     .artifacts

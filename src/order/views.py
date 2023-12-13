@@ -1,9 +1,10 @@
-from django.shortcuts import render, HttpResponseRedirect
-from django.views import generic
-from . import forms, models
 from carts import models as carts_models
+
+from django.shortcuts import HttpResponseRedirect, render
 from django.urls import reverse_lazy
-from trycourier import Courier
+from django.views import generic
+
+from . import forms, models
 
 
 class CreateOrderView(generic.FormView):
