@@ -1,10 +1,10 @@
-from django.shortcuts import render
-from django.views import generic
-from . import models
-from product_card.models import Book
+from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
-from django.views import View
-from django.http import HttpResponseRedirect, HttpResponse
+from django.views import View, generic
+
+from product_card.models import Book
+
+from . import models
 
 
 class CartUpdate(View):
