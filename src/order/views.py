@@ -35,18 +35,16 @@ class CreateOrderView(generic.FormView):
         client = Courier(auth_token=settings.COURIER_AUTH_TOKEN)
         resp = client.send_message(
             message={
-                "to": {
-                    "email": settings.EMAIL_FOR_COURIER_SENDING
-            },
+                "to": {"email": settings.EMAIL_FOR_COURIER_SENDING},
                 "content": {
-                "title": "New order",
-                "body": "Hey! {{user}} {{email}} just placed a new order. Please check administrative portal to see details."
-            },
-            "data":{
-            "user": user.name + ' ' + user.surname,
-            "email": user.email,
+                    "title": "New order",
+                    "body": "Hey! {{user}} {{email}} just placed a new order. Please check administrative portal to see details.",
+                },
+                "data": {
+                    "user": user.name + " " + user.surname,
+                    "email": user.email,
+                },
             }
-        }
         )
         self.request.session.delete("cart_id")
         if self.request.user.is_authenticated:
