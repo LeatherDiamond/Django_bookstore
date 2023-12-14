@@ -92,13 +92,17 @@
             <div class="d-flex justify-content-between align-items-center">
               <div class="btn-group">
                 <a href="{% url 'catalog:book_detail' pk=obj.pk %}"  type="submit" class="btn btn-sm btn-outline-secondary">View</a>
-                {% if perms.product_card.view_book%}
+                {% if perms.product_card.view_book %}
                 <a href="{% url 'product_card:pc_update' pk=obj.pk %}" type="button" class="btn btn-sm btn-outline-secondary">Edit</a>
                 {% endif %}
               </div>
             </div>
           </div>
         </div>
+      </div>
+      {% empty %}
+      <div class="container">
+      <p class="lead" style="text-align: center;">No books available yet.</p>
       </div>
       {% endfor %}
 </main>

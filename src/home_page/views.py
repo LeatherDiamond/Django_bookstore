@@ -1,3 +1,5 @@
+import random
+
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import AuthenticationForm
@@ -7,6 +9,7 @@ from django.shortcuts import render
 from django.views import generic
 
 from product_card.models import Book
+from references.models import BookAuthor
 
 from .forms import NewUserForm
 
@@ -68,10 +71,27 @@ class HomePage(generic.TemplateView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        context["new_book"] = Book.objects.get(pk=3)
-        context["awesome_book"] = Book.objects.get(pk=10)
-        context["history_book"] = Book.objects.get(pk=2)
+        context["new_book"] = self.get_random_book(genre=1)
+        context["awesome_book"] = self.get_random_book(genre=5)
+        context["history_book"] = self.get_random_book(genre=6)
+        context["random_author"] = self.get_random_author()
         return context
+    
+    def get_random_book(self, genre):
+        books = Book.objects.filter(genre=genre)
+
+        if books.exists():
+            return random.choice(books)
+        else:
+            return None
+    
+    def get_random_author(self):
+        authors = BookAuthor.objects.all()
+
+        if authors.exists():
+            return random.choice(authors)
+        else:
+            return None
 
 
 class ShippingInfo(generic.TemplateView):
