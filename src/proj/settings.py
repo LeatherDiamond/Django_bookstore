@@ -1,12 +1,19 @@
+import os
 from pathlib import Path
+
+import dj_database_url
+
+from dotenv import find_dotenv, load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = "django-insecure-******************************"
+load_dotenv(find_dotenv())
 
-DEBUG = True
+SECRET_KEY = os.getenv("SECRET_KEY")
 
-ALLOWED_HOSTS = ["alexanderdovguchits.pythonanywhere.com", "*"]
+DEBUG = os.getenv("DEBUG_MODE", "False")
+
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS").split(",")
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -58,6 +65,14 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "proj.wsgi.application"
+
+# DATABASES = {
+#     "default": dj_database_url.parse(
+#         os.getenv("PRIMARY_DATABASE_URL"),
+#         conn_max_age=600,
+#         conn_health_checks=True,
+#     )
+# }
 
 DATABASES = {
     "default": {
@@ -112,5 +127,8 @@ AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
 )
 
-# SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = local_settings.SOCIAL_AUTH_GOOGLE_OAUTH2_KEY
-# SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = local_settings.SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.getenv("SOCIAL_AUTH_GOOGLE_OAUTH2_KEY")
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.getenv("SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET")
+
+COURIER_AUTH_TOKEN = os.getenv("COURIER_AUTH_TOKEN")
+EMAIL_FOR_COURIER_SENDING = os.getenv("EMAIL_FOR_COURIER_SENDING")

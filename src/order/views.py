@@ -1,8 +1,11 @@
 from carts import models as carts_models
 
+from django.conf import settings
 from django.shortcuts import HttpResponseRedirect, render
 from django.urls import reverse_lazy
 from django.views import generic
+
+from trycourier import Courier
 
 from . import forms, models
 
@@ -29,23 +32,22 @@ class CreateOrderView(generic.FormView):
             status=status,
             user=user,
         )
-        #     client = local_settings.courier_client
-        #     resp = client.send_message(
-        #         message={
-        #             "to": {
-        #                 "email": "customerservicewawbookspl@gmail.com"
-        #       },
-        #             "content": {
-        #             "title": "New order",
-        #             "body": "Hey! {{user}} {{email}} just placed a new order. Please check administrative portal to see details. {{link}}"
-        #       },
-        #       "data":{
-        #         "user": user.name + ' ' + user.surname,
-        #         "email": user.email,
-        #         "link": 'https://alexanderdovguchits.pythonanywhere.com/admin_portal/'
-        #       }
-        #     }
-        #   )
+        client = Courier(auth_token=settings.COURIER_AUTH_TOKEN)
+        resp = client.send_message(
+            message={
+                "to": {
+                    "email": settings.EMAIL_FOR_COURIER_SENDING
+            },
+                "content": {
+                "title": "New order",
+                "body": "Hey! {{user}} {{email}} just placed a new order. Please check administrative portal to see details."
+            },
+            "data":{
+            "user": user.name + ' ' + user.surname,
+            "email": user.email,
+            }
+        }
+        )
         self.request.session.delete("cart_id")
         if self.request.user.is_authenticated:
             cart_id = self.request.session.get("cart_id")
