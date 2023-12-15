@@ -3,46 +3,35 @@ import os
 import django
 from django.db.utils import DataError
 
-from dotenv import load_dotenv
-
 import pytest
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "proj.settings")
 django.setup()
 
-load_dotenv()
-
 from references.models import BookAuthor, BookGenre, BookPublishingHouse, BookSeries
 
 
 @pytest.mark.django_db
-def test_author_fields():
-    author = BookAuthor.objects.create(name="John", surname="Doe")
-    assert author.name == "John"
-    assert author.surname == "Doe"
-    assert author.description is None
+def test_author_fields(sample_author):
+    assert sample_author.name == "John"
+    assert sample_author.surname == "Doe"
+    assert sample_author.description is None
 
 
 @pytest.mark.django_db
-def test_author_absolute_url():
-    author = BookAuthor.objects.create(name="John", surname="Doe")
-    assert author.get_absolute_url() == f"/references/author_preview/{author.pk}/"
+def test_author_absolute_url(sample_author):
+    assert sample_author.get_absolute_url() == f"/references/author_preview/{sample_author.pk}/"
 
 
 @pytest.mark.django_db
-def test_author_str_method():
-    author = BookAuthor.objects.create(name="John", surname="Doe")
-    assert str(author) == "John Doe"
+def test_author_str_method(sample_author):
+    assert str(sample_author) == "John Doe"
 
 
 @pytest.mark.django_db
-def test_author_max_length():
-    author = BookAuthor.objects.create(
-        name="John" + "a" * 24,
-        surname="Doe" + "b" * 24,
-    )
-    assert author.name == "John" + "a" * 24
-    assert author.surname == "Doe" + "b" * 24
+def test_author_max_length(sample_long_name_author):
+    assert sample_long_name_author.name == "John" + "a" * 24
+    assert sample_long_name_author.surname == "Doe" + "b" * 24
 
     with pytest.raises(DataError):
         BookAuthor.objects.create(
@@ -52,30 +41,24 @@ def test_author_max_length():
 
 
 @pytest.mark.django_db
-def test_series_fields():
-    series = BookSeries.objects.create(book_series="Harry Potter")
-    assert series.book_series == "Harry Potter"
-    assert series.description is None
+def test_series_fields(sample_series):
+    assert sample_series.book_series == "Harry Potter"
+    assert sample_series.description is None
 
 
 @pytest.mark.django_db
-def test_series_absolute_url():
-    series = BookSeries.objects.create(book_series="Harry Potter")
-    assert series.get_absolute_url() == f"/references/series_preview/{series.pk}/"
+def test_series_absolute_url(sample_series):
+    assert sample_series.get_absolute_url() == f"/references/series_preview/{sample_series.pk}/"
 
 
 @pytest.mark.django_db
-def test_series_str_method():
-    series = BookSeries.objects.create(book_series="Harry Potter")
-    assert str(series) == "Harry Potter"
+def test_series_str_method(sample_series):
+    assert str(sample_series) == "Harry Potter"
 
 
 @pytest.mark.django_db
-def test_series_max_length():
-    series = BookSeries.objects.create(
-        book_series="Test" + "a" * 24,
-    )
-    assert series.book_series == "Test" + "a" * 24
+def test_series_max_length(sample_long_series_name):
+    assert sample_long_series_name.book_series == "Test" + "a" * 24
 
     with pytest.raises(DataError):
         BookSeries.objects.create(
@@ -84,32 +67,24 @@ def test_series_max_length():
 
 
 @pytest.mark.django_db
-def test_genre_fields():
-    genre = BookGenre.objects.create(genre_name="Horror")
-    assert genre.genre_name == "Horror"
-    assert genre.description is None
+def test_genre_fields(sample_genre):
+    assert sample_genre.genre_name == "Horror"
+    assert sample_genre.description is None
 
 
 @pytest.mark.django_db
-def test_genre_absolute_url():
-    genre = BookGenre.objects.create(genre_name="Horror")
-    assert genre.get_absolute_url() == f"/references/genre_preview/{genre.pk}/"
+def test_genre_absolute_url(sample_genre):
+    assert sample_genre.get_absolute_url() == f"/references/genre_preview/{sample_genre.pk}/"
 
 
 @pytest.mark.django_db
-def test_genre_str_method():
-    genre = BookGenre.objects.create(
-        genre_name="Horror",
-    )
-    assert str(genre) == "Horror"
+def test_genre_str_method(sample_genre):
+    assert str(sample_genre) == "Horror"
 
 
 @pytest.mark.django_db
-def test_genre_max_length():
-    genre = BookGenre.objects.create(
-        genre_name="Test" + "a" * 24,
-    )
-    assert genre.genre_name == "Test" + "a" * 24
+def test_genre_max_length(sample_long_genre_name):
+    assert sample_long_genre_name.genre_name == "Test" + "a" * 24
 
     with pytest.raises(DataError):
         BookGenre.objects.create(
@@ -118,30 +93,24 @@ def test_genre_max_length():
 
 
 @pytest.mark.django_db
-def test_publisher_fields():
-    publisher = BookPublishingHouse.objects.create(house_name="Penguin")
-    assert publisher.house_name == "Penguin"
-    assert publisher.description is None
+def test_publisher_fields(sample_publisher):
+    assert sample_publisher.house_name == "Penguin"
+    assert sample_publisher.description is None
 
 
 @pytest.mark.django_db
-def test_publisher_absolute_url():
-    publisher = BookPublishingHouse.objects.create(house_name="Penguin")
-    assert publisher.get_absolute_url() == f"/references/house_preview/{publisher.pk}/"
+def test_publisher_absolute_url(sample_publisher):
+    assert sample_publisher.get_absolute_url() == f"/references/house_preview/{sample_publisher.pk}/"
 
 
 @pytest.mark.django_db
-def test_publisher_str_method():
-    publisher = BookPublishingHouse.objects.create(house_name="Penguin")
-    assert str(publisher) == "Penguin"
+def test_publisher_str_method(sample_publisher):
+    assert str(sample_publisher) == "Penguin"
 
 
 @pytest.mark.django_db
-def test_publisher_max_length():
-    publisher = BookPublishingHouse.objects.create(
-        house_name="Test" + "a" * 24,
-    )
-    assert publisher.house_name == "Test" + "a" * 24
+def test_publisher_max_length(sample_long_publisher_name):
+    assert sample_long_publisher_name.house_name == "Test" + "a" * 24
 
     with pytest.raises(DataError):
         BookPublishingHouse.objects.create(
