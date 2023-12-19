@@ -1,12 +1,6 @@
-import os
-
-import django
 from django.urls import reverse
 
 import pytest
-
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "proj.settings")
-django.setup()
 
 from references.models import BookAuthor, BookGenre, BookPublishingHouse, BookSeries
 
