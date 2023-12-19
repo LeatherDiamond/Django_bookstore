@@ -1,6 +1,4 @@
-import pytest
-
-from references.forms import AuthorForm, SeriesForm, GenreForm, PublishingHouseForm
+from references.forms import AuthorForm, GenreForm, PublishingHouseForm, SeriesForm
 
 
 def test_author_form_valid():
@@ -62,8 +60,6 @@ def test_genre_form_invalid():
 
 
 def test_publisher_form_invalid():
-    data = {
-        "house_name": ""
-    }
+    data = {"house_name": ""}
     form = PublishingHouseForm(data)
     assert not form.is_valid()
