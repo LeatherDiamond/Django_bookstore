@@ -1,7 +1,7 @@
 [flake8]
 ignore = S101, S001, S105, S106, B101, W503, Q000, E402, JS101, JS102, MOD001, VNE001, ECE001, F841, A003, VNE003
 per-file-ignores =
-    src/references/references_tests/conftest.py: I100
+    src/tests/conftest.py: I100
     src/create_default_db_data.py: I100
     src/home_page/views.py: S311
 

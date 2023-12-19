@@ -9,7 +9,11 @@ django.setup()
 
 from catalog.models import AppUser
 
+from datetime import date
+
 from references.models import BookAuthor, BookGenre, BookPublishingHouse, BookSeries
+
+from product_card.models import Book
 
 from django.test import Client
 from django.contrib.auth.models import Permission
@@ -128,4 +132,25 @@ def sample_publisher():
 def sample_long_publisher_name():
     return BookPublishingHouse.objects.create(
         house_name="Test" + "a" * 24,
+    )
+
+
+@pytest.fixture
+def sample_product_card(sample_series, sample_publisher):
+    return Book.objects.create(
+        name="Test Book",
+        price=10.0,
+        series=sample_series,
+        publishing_year="2022",
+        pages=200,
+        binding="Hardcover",
+        format="A5",
+        isbn="1234567890",
+        weight=500,
+        age_restriction=16,
+        publishing_house=sample_publisher,
+        available_books=100,
+        activity="Yes",
+        rating=4.5,
+        date_of_addition=date.today(),
     )
