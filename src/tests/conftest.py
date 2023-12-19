@@ -46,6 +46,10 @@ def app_user_manager():
         "add_bookpublishinghouse",
         "change_bookpublishinghouse",
         "delete_bookpublishinghouse",
+        "view_book",
+        "add_book",
+        "change_book",
+        "delete_book",
     ]
 
     for codename in permissions:
