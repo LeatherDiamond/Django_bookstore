@@ -16,6 +16,13 @@ from django.contrib.auth.models import Permission
 
 
 @pytest.fixture
+def app_user_superuser():
+    return AppUser.objects.create_user(
+        username="superuser", password="superuserpass", is_superuser=True, is_staff=True, is_active=True
+    )
+
+
+@pytest.fixture
 def app_user_manager():
     user = AppUser.objects.create_user(username="manager", password="managerpass")
     permissions = [
@@ -47,6 +54,13 @@ def app_user_manager():
 @pytest.fixture
 def app_user_client():
     return AppUser.objects.create_user(username="client", password="clientpass")
+
+
+@pytest.fixture
+def app_login_superuser(app_user_superuser):
+    client = Client()
+    client.login(username="superuser", password="superuserpass")
+    return client
 
 
 @pytest.fixture
