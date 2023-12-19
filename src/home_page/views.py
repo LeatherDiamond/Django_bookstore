@@ -9,6 +9,7 @@ from django.shortcuts import render
 from django.views import generic
 
 from product_card.models import Book
+
 from references.models import BookAuthor
 
 from .forms import NewUserForm
@@ -76,7 +77,7 @@ class HomePage(generic.TemplateView):
         context["history_book"] = self.get_random_book(genre=6)
         context["random_author"] = self.get_random_author()
         return context
-    
+
     def get_random_book(self, genre):
         books = Book.objects.filter(genre=genre)
 
@@ -84,7 +85,7 @@ class HomePage(generic.TemplateView):
             return random.choice(books)
         else:
             return None
-    
+
     def get_random_author(self):
         authors = BookAuthor.objects.all()
 

@@ -1,7 +1,8 @@
+from datetime import date
+
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.urls import reverse_lazy
-from datetime import date
 
 from references.models import BookAuthor, BookGenre, BookPublishingHouse, BookSeries
 

@@ -1,13 +1,12 @@
 import contextlib
+import os
 
 import django
-
-import os
+from django.conf import settings
 
 from dotenv import find_dotenv, load_dotenv
 
 os.environ["DJANGO_SETTINGS_MODULE"] = "proj.settings"
-from django.conf import settings
 
 load_dotenv(find_dotenv())
 
