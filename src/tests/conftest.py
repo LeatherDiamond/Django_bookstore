@@ -9,7 +9,7 @@ django.setup()
 
 from catalog.models import AppUser
 
-from datetime import date
+from datetime import date, datetime
 
 from references.models import BookAuthor, BookGenre, BookPublishingHouse, BookSeries
 
@@ -140,8 +140,8 @@ def sample_long_publisher_name():
 
 
 @pytest.fixture
-def sample_product_card(sample_series, sample_publisher):
-    return Book.objects.create(
+def sample_product_card(sample_series, sample_publisher, sample_genre, sample_author):
+    book = Book.objects.create(
         name="Test Book",
         price=10.0,
         series=sample_series,
@@ -157,4 +157,10 @@ def sample_product_card(sample_series, sample_publisher):
         activity="Yes",
         rating=4.5,
         date_of_addition=date.today(),
+        modification_date=datetime.now(),
+        description="New Book",
     )
+    book.author.add(sample_author)
+    book.genre.add(sample_genre)
+
+    return book

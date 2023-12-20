@@ -51,8 +51,10 @@ def test_create_product_card(app_login_manager, app_login_client, app_anonymous_
 
     data = {
         "name": sample_product_card.name,
+        "author": sample_product_card.author.first().id,
         "price": sample_product_card.price,
-        "series": sample_product_card.series,
+        "series": sample_product_card.series.id,
+        "genre": sample_product_card.genre.first().id,
         "publishing_year": sample_product_card.publishing_year,
         "pages": sample_product_card.pages,
         "binding": sample_product_card.binding,
@@ -60,11 +62,13 @@ def test_create_product_card(app_login_manager, app_login_client, app_anonymous_
         "isbn": sample_product_card.isbn,
         "weight": sample_product_card.weight,
         "age_restriction": sample_product_card.age_restriction,
-        "publishing_house": sample_product_card.publishing_house,
+        "publishing_house": sample_product_card.publishing_house.id,
         "available_books": sample_product_card.available_books,
         "activity": sample_product_card.activity,
         "rating": sample_product_card.rating,
         "date_of_addition": sample_product_card.date_of_addition,
+        "modification_date": sample_product_card.modification_date,
+        "description": sample_product_card.description,
     }
 
     response_manager = app_login_manager.post(url, data)
@@ -98,8 +102,10 @@ def test_update_product_card(app_login_manager, app_login_client, app_anonymous_
 
     data = {
         "name": "Updated Name",
+        "author": sample_product_card.author.first().id,
         "price": sample_product_card.price,
         "series": sample_product_card.series.id,
+        "genre": sample_product_card.genre.first().id,
         "publishing_year": sample_product_card.publishing_year,
         "pages": sample_product_card.pages,
         "binding": sample_product_card.binding,
@@ -112,6 +118,8 @@ def test_update_product_card(app_login_manager, app_login_client, app_anonymous_
         "activity": sample_product_card.activity,
         "rating": sample_product_card.rating,
         "date_of_addition": sample_product_card.date_of_addition,
+        "modification_date": sample_product_card.modification_date,
+        "description": sample_product_card.description,
     }
     response_manager = app_login_manager.post(url, data)
     response_client = app_login_client.post(url, data)
