@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("references", "0004_alter_bookauthor_surname2"),
     ]
@@ -13,15 +12,11 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="bookauthor",
             name="name3",
-            field=models.CharField(
-                blank=True, max_length=30, null=True, verbose_name="Author's name"
-            ),
+            field=models.CharField(blank=True, max_length=30, null=True, verbose_name="Author's name"),
         ),
         migrations.AddField(
             model_name="bookauthor",
             name="surname3",
-            field=models.CharField(
-                blank=True, max_length=30, null=True, verbose_name="Author's name"
-            ),
+            field=models.CharField(blank=True, max_length=30, null=True, verbose_name="Author's name"),
         ),
     ]

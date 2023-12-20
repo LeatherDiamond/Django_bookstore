@@ -1,24 +1,20 @@
-from django.db import models
-from django.contrib.sessions.models import Session
 from carts.models import (
     Cart,
-    BooksInCart,
 )
-from django.contrib.auth import get_user_model
 
-# Create your models here.
+from django.contrib.auth import get_user_model
+from django.contrib.sessions.models import Session
+from django.db import models
+
 
 User = get_user_model()
 
 
 class CustomSession(Session):
-    cart = models.ForeignKey(
-        Cart,
-        on_delete=models.CASCADE
-    )
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
 
     class Meta:
-        app_label = 'cart_id'
+        app_label = "cart_id"
 
 
 class Status(models.Model):
@@ -33,33 +29,14 @@ class Status(models.Model):
 
 
 class Order(models.Model):
-    user = models.ForeignKey(
-        User,
-        on_delete=models.PROTECT,
-        related_name='orders'
-    )
-    cart = models.OneToOneField(
-        Cart,
-        on_delete=models.PROTECT,
-        verbose_name="Cart"
-    )
-    status = models.ForeignKey(
-        Status,
-        on_delete=models.PROTECT
-    )
+    user = models.ForeignKey(User, on_delete=models.PROTECT, related_name="orders")
+    cart = models.OneToOneField(Cart, on_delete=models.PROTECT, verbose_name="Cart")
+    status = models.ForeignKey(Status, on_delete=models.PROTECT)
     contact_info = models.TextField(
         verbose_name="Contact info",
     )
-    created = models.DateTimeField(
-        verbose_name="Created",
-        auto_now=False,
-        auto_now_add=True
-    )
-    updated = models.DateTimeField(
-        verbose_name="Updated",
-        auto_now=True,
-        auto_now_add=False
-    )
+    created = models.DateTimeField(verbose_name="Created", auto_now=False, auto_now_add=True)
+    updated = models.DateTimeField(verbose_name="Updated", auto_now=True, auto_now_add=False)
 
     def __str__(self):
         return self.contact_info

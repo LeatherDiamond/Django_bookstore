@@ -35,6 +35,10 @@ Available genres
               </div>
             </div>
           </div>
+          {% empty %}
+          <div class="container">
+            <p class="lead" style="text-align: center;"><em>No books available yet.</em></p>
+            </div>
           {% endfor %}
 </main>
 
@@ -67,6 +71,10 @@ Available genres
                 </div>
               </div>
             </div>
+            {% empty %}
+            <div class="container">
+              <p class="lead" style="text-align: center;"><em>No books available yet.</em></p>
+              </div>
             {% endfor %}
 </main>
 
@@ -100,6 +108,10 @@ Available genres
                   </div>
                 </div>
               </div>
+              {% empty %}
+              <div class="container">
+                <p class="lead" style="text-align: center;"><em>No books available yet.</em></p>
+                </div>
               {% endfor %}
 </main>
 
@@ -133,6 +145,10 @@ Available genres
             </div>
           </div>
         </div>
+        {% empty %}
+        <div class="container">
+          <p class="lead" style="text-align: center;"><em>No books available yet.</em></p>
+          </div>
         {% endfor %}
 </main>
 
@@ -166,6 +182,11 @@ Available genres
           </div>
         </div>
       </div>
+      {% empty %}
+      <div class="container">
+        <p class="lead" style="text-align: center;"><em>No books available yet.</em></p>
+        </div>
       {% endfor %}
 </main>
+</div>
 {% endblock content %}

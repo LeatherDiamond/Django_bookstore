@@ -5,7 +5,6 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("references", "0012_alter_bookgenre_genre_name_and_more"),
         ("product_card", "0006_alter_book_author_alter_book_genre_and_more"),

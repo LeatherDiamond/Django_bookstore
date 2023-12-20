@@ -5,7 +5,6 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("references", "0011_remove_bookseries_book_name"),
         ("product_card", "0005_remove_book_author_remove_book_genre_and_more"),
@@ -22,8 +21,14 @@ class Migration(migrations.Migration):
             name="genre",
             field=models.ManyToManyField(to="references.bookgenre"),
         ),
-        migrations.RemoveField(model_name="book", name="publishing_house",),
-        migrations.RemoveField(model_name="book", name="series",),
+        migrations.RemoveField(
+            model_name="book",
+            name="publishing_house",
+        ),
+        migrations.RemoveField(
+            model_name="book",
+            name="series",
+        ),
         migrations.AddField(
             model_name="book",
             name="publishing_house",

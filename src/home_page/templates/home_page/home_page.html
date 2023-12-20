@@ -8,6 +8,7 @@
     <link href="{% static 'icons/bootstrap-icons.css' %}" rel="stylesheet">
     <link href="{% static 'bs/css/bootstrap.min.css' %}" rel="stylesheet">
     <script src="{% static 'bs/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'bs/js/bootstrap.bundle.min.js' %}"></script>
     <link href="{% static 'bs/css/custom_home_page.css' %}" rel="stylesheet">
 
     <header>
@@ -39,11 +40,6 @@
           </li>
           {% endif %}
             </ul>
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link"  href="https://select.by/kursy-valyut/natsbank-rb">2.4980 USD/BYN</a>
-                </li>
-              </ul>
             
               <form action="{% url 'search_results' %}" method="get" class="d-flex" role="search">
                 <input name="q" type="text" class="form-control me-2" placeholder="Search" aria-label="Search">
@@ -117,93 +113,94 @@
     </div>
   
   
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-  
     <div class="container marketing">
-  
-      <!-- Three columns of text below the carousel -->
+      
+      {% if random_author %}
       <div class="row">
+        <h2 class="fw-normal col-lg-7">
+          One of the authors featured on our site. Look at the catalogue of available books and make sure on your own example that this author is worthy of your attention:
+        </h2>
         <div class="col-lg-4">
-          <h2 class="fw-normal">Elizabeth Strout</h2>
-          <p>Elizabeth Strout is widely known for her works in literary fiction and her descriptive characterization.</p>
-          <p><a class="btn btn-secondary" href="https://en.wikipedia.org/wiki/Elizabeth_Strout">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <h2 class="fw-normal">Donna Tartt</h2>
-          <p>Donna Louise Tartt is an American novelist and essayist. Learn more about her works.</p>
-          <p><a class="btn btn-secondary" href="https://en.wikipedia.org/wiki/Donna_Tartt">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-        <div class="col-lg-4">
-          <h2 class="fw-normal">Colleen Hoover</h2>
-          <p>Colleen Hoover has sold more than 20 million books. Learn more about her books.</p>
-          <p><a class="btn btn-secondary" href="https://en.wikipedia.org/wiki/Colleen_Hoover">View details &raquo;</a></p>
-        </div><!-- /.col-lg-4 -->
-      </div><!-- /.row -->
+          <h2 class="fw-normal">{{ random_author.name }} {{random_author.surname}}</h2>
+          <p>{{ random_author.description }}</p>
+          <p><a class="btn btn-secondary" href="{% url 'catalog:catalog' %}">View catalog &raquo;</a></p>
+        </div>
+      </div>
+        {% else %}
+
+        <p class="lead">No authors available yet.</p>
+
+        {% endif %}
   
-  
-      <!-- START THE FEATURETTES -->
-  
+
       <hr class="featurette-divider">
-  
+      {% if new_book %}
       <div class="row featurette">
         <div class="col-md-7">
-          <h2 class="featurette-heading fw-normal lh-1">Just new fantasy adventure. <span class="text-muted">It’ll blow your mind.</span></h2>
-          <p class="lead">Jinwoo knows it won't be long before his true power fully comes to light and the guilds and Hunter's Association of Korea descend, seeking his allegiance. Since his training has thus far been a solo endeavor, Jinwoo decides he ought to at least see what an A-rank raid is really like. Joining the Hunters' excavation team is the perfect opportunity to assess a high-level guild in action, even if his role is limited to hauling and mining. That is, until a particularly nasty dungeon boss requires the luggage carrier to step up to carry the team as well!</p>
+          <h2 class="featurette-heading fw-normal lh-1">Just a new one. <span class="text-muted">It’ll blow your mind.</span></h2>
+          <p class="lead">{{ new_book.description }}</p>
           <div>
-            <a href={% url "catalog:book_detail" pk=3 %} class="btn btn-outline-success me4">Get it now!</a>
+            <a href={% url "catalog:book_detail" pk=new_book.pk %} class="btn btn-outline-success me4">Get it now!</a>
           </div>
         </div>
         <div class="col-md-5">
-            <div class="shadow p-3 mb-5 bg-body rounded">
-            <img src="{{ new_book.image.url }}" alt="Solo leveling" width="500" height="500" border="1">
-            </div>
+            
+            <img src="{{ new_book.image.url }}" alt="New book image" width="350" height="400" border="1">
+            
         </div>
       </div>
+      {% else %}
+
+      <p class="lead">No books available yet.</p>
+
+      {% endif %}
   
       <hr class="featurette-divider">
-  
+      
+      {% if awesome_book %}
       <div class="row featurette">
         <div class="col-md-7 order-md-2">
           <h2 class="featurette-heading fw-normal lh-1">Oh yeah, the most popular book. <span class="text-muted">See for yourself.</span></h2>
-          <p class="lead"> It is three in the morning when Bobby Western zips the jacket of his wet suit and plunges from the Coast Guard tender into darkness. His dive light illuminates the sunken jet, nine bodies still buckled in their seats, hair floating, eyes devoid of speculation. Missing from the crash site are the pilot’s flight bag, the plane’s black box, and the tenth passenger. But how? A collateral witness to machinations that can only bring him harm, Western is shadowed in body and spirit—by men with badges; by the ghost of his father, inventor of the bomb that melted glass and flesh in Hiroshima; and by his sister, the love and ruin of his soul.</p>
+          <p class="lead"> {{ awesome_book.description }} </p>
           <div>
-            <a href={% url "catalog:book_detail" pk=10 %} class="btn btn-outline-success me4">Get it now!</a>
+            <a href={% url "catalog:book_detail" pk=awesome_book.pk %} class="btn btn-outline-success me4">Get it now!</a>
         </div>
         </div>
         <div class="col-md-5 order-md-1">
-            <div class="shadow p-3 mb-5 bg-body rounded">
-                <img src="{{ awesome_book.image.url }}" alt="The passenger" width="500" height="500" border="1">
-            </div>
+                <img src="{{ awesome_book.image.url }}" alt="The passenger" width="350" height="400" border="1">
             </div>
           </div>
+          {% else %}
+
+          <p class="lead">No books available yet.</p>
+    
+          {% endif %}
   
       <hr class="featurette-divider">
-  
+      
+      {% if history_book %}
       <div class="row featurette">
         <div class="col-md-7">
           <h2 class="featurette-heading fw-normal lh-1">We recommend. <span class="text-muted">Check it out.</span></h2>
-          <p class="lead">Under the influence of their charismatic classics professor, a group of clever, eccentric misfits at an elite New England college discover a way of thinking and living that is a world away from the humdrum existence of their contemporaries. But when they go beyond the boundaries of morality, their lives are changed profoundly and for ever.</p>
+          <p class="lead"> {{ history_book.description }} </p>
           <div>
-            <a href={% url "catalog:book_detail" pk=2 %} class="btn btn-outline-success me4">Get it now!</a>
+            <a href={% url "catalog:book_detail" pk=history_book.pk %} class="btn btn-outline-success me4">Get it now!</a>
           </div>
         </div>
         <div class="col-md-5">
-            <div class="shadow p-3 mb-5 bg-body rounded">
-                <img src="{{ history_book.image.url }}" alt="The secret History" width="500" height="500" border="1">
+                <img src="{{ history_book.image.url }}" alt="The secret History" width="350" height="400" border="1">
                 </div>
-            </div>
           </div>
+          {% else %}
+
+          <p class="lead">No books available yet.</p>
+    
+          {% endif %}
   
       <hr class="featurette-divider">
-  
-      <!-- /END THE FEATURETTES -->
-  
-    </div><!-- /.container -->
+    </div>
   
   
-    <!-- FOOTER -->
     <footer class="py-3 my-4">
         <div class="shadow p-3 mb-5 bg-body rounded">
         <div class="container">
@@ -211,15 +208,12 @@
             <li class="nav-item"><a href="{%url 'home_page:shipping_info'%}" class="nav-link px-2 text-muted">Shipping</a></li>
             <li class="nav-item"><a href="{%url 'home_page:about_info'%}" class="nav-link px-2 text-muted">About</a></li>
             </ul>
-          <p class="text-center text-muted">&copy; 2022 LeatherDiamond</p>
+          <p class="text-center">&copy; 2022</p> 
+          <p class="text-center"><a href="https://github.com/LeatherDiamond" target="_blank"><img src="/media/uploads/2023/03/03/photo_2023-08-22_12-32-39.jpg"  style="height: 50px; width: 100px;"></p></a>
         </div>
         </div>
     </footer>
-  </main>
-  
-  
-      <script src="/docs/5.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-  
+  </main>  
         
     </body>
   </html>

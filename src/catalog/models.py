@@ -1,22 +1,17 @@
-from django.db import models
-from django.utils import timezone
-from product_card.models import Book
-from django.contrib.auth.models import User
 from django.contrib.auth.models import (
     AbstractBaseUser,
-    UserManager,
     PermissionsMixin,
+    UserManager,
 )
+from django.db import models
+from django.utils import timezone
 
+from product_card.models import Book
 
-# Create your models here.
 
 class Comment(models.Model):
-    book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name='comments')
-    username = models.ForeignKey(
-        'AppUser', on_delete=models.CASCADE,
-        related_name='user_name'
-    )
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, related_name="comments")
+    username = models.ForeignKey("AppUser", on_delete=models.CASCADE, related_name="user_name")
     text = models.TextField()
     created_date = models.DateTimeField(default=timezone.now)
 
@@ -24,7 +19,7 @@ class Comment(models.Model):
         return self.text
 
     class Meta:
-        ordering = ['-created_date']
+        ordering = ["-created_date"]
 
 
 class AppUser(AbstractBaseUser, PermissionsMixin):
@@ -50,9 +45,9 @@ class AppUser(AbstractBaseUser, PermissionsMixin):
 
     objects = UserManager()
 
-    USERNAME_FIELD = 'username'
+    USERNAME_FIELD = "username"
 
     class Meta:
-        verbose_name = 'username'
-        verbose_name_plural = 'usernames'
+        verbose_name = "username"
+        verbose_name_plural = "usernames"
         abstract = False

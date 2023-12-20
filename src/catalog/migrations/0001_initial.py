@@ -8,7 +8,6 @@ import django.utils.timezone
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -32,9 +31,7 @@ class Migration(migrations.Migration):
                 ("password", models.CharField(max_length=128, verbose_name="password")),
                 (
                     "last_login",
-                    models.DateTimeField(
-                        blank=True, null=True, verbose_name="last login"
-                    ),
+                    models.DateTimeField(blank=True, null=True, verbose_name="last login"),
                 ),
                 ("username", models.CharField(max_length=30, unique=True)),
                 ("email", models.EmailField(blank=True, max_length=254, null=True)),
@@ -69,7 +66,9 @@ class Migration(migrations.Migration):
                 "verbose_name_plural": "usernames",
                 "abstract": False,
             },
-            managers=[("objects", django.contrib.auth.models.UserManager()),],
+            managers=[
+                ("objects", django.contrib.auth.models.UserManager()),
+            ],
         ),
         migrations.CreateModel(
             name="Comment",
@@ -105,6 +104,8 @@ class Migration(migrations.Migration):
                     ),
                 ),
             ],
-            options={"ordering": ["-created_date"],},
+            options={
+                "ordering": ["-created_date"],
+            },
         ),
     ]

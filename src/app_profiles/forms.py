@@ -1,16 +1,16 @@
 from catalog.models import AppUser
+
 from django.forms import (
-    ModelForm,
     CharField,
+    ModelForm,
 )
 
 
 class ProfileForm(ModelForm):
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        for field in ('country', 'city', 'address', 'reserve_address', 'index'):
-            self.fields[field].widget.attrs['disabled'] = True
+        for field in ("country", "city", "address", "reserve_address", "index"):
+            self.fields[field].widget.attrs["disabled"] = True
             self.fields[field].widget.required = False
 
             def clean(name=field):
@@ -30,14 +30,14 @@ class ProfileForm(ModelForm):
     class Meta:
         model = AppUser
         fields = (
-            'email',
-            'name',
-            'surname',
-            'phone',
-            'country',
-            'city',
-            'address',
-            'reserve_address',
-            'additional_info',
-            'index',
+            "email",
+            "name",
+            "surname",
+            "phone",
+            "country",
+            "city",
+            "address",
+            "reserve_address",
+            "additional_info",
+            "index",
         )

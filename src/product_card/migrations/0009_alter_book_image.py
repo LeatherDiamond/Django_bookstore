@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("product_card", "0008_alter_book_name_alter_book_price_alter_book_weight"),
     ]

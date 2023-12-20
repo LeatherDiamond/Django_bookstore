@@ -4,13 +4,15 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("order", "0002_delete_test"),
     ]
 
     operations = [
-        migrations.RemoveField(model_name="order", name="contact_info",),
+        migrations.RemoveField(
+            model_name="order",
+            name="contact_info",
+        ),
         migrations.AddField(
             model_name="order",
             name="additional_info",

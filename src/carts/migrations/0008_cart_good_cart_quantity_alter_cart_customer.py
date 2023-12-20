@@ -6,7 +6,6 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("product_card", "0011_book_description"),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),

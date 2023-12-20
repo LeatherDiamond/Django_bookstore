@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("product_card", "0007_alter_book_price_alter_book_publishing_house"),
     ]
@@ -28,8 +27,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="book",
             name="weight",
-            field=models.IntegerField(
-                help_text="Weight in grams", verbose_name="Weight"
-            ),
+            field=models.IntegerField(help_text="Weight in grams", verbose_name="Weight"),
         ),
     ]

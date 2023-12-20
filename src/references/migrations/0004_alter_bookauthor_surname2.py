@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("references", "0003_rename_name_bookauthor_name1_and_more"),
     ]
@@ -13,8 +12,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="bookauthor",
             name="surname2",
-            field=models.CharField(
-                blank=True, max_length=30, null=True, verbose_name="Author's surname"
-            ),
+            field=models.CharField(blank=True, max_length=30, null=True, verbose_name="Author's surname"),
         ),
     ]

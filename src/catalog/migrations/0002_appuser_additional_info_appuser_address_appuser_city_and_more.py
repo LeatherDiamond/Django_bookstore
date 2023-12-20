@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("catalog", "0001_initial"),
     ]
@@ -48,9 +47,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="appuser",
             name="phone",
-            field=models.IntegerField(
-                default=1, help_text="Enter the number in international format."
-            ),
+            field=models.IntegerField(default=1, help_text="Enter the number in international format."),
             preserve_default=False,
         ),
         migrations.AddField(

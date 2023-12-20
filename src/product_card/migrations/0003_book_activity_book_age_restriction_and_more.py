@@ -5,7 +5,6 @@ import django.utils.timezone
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         (
             "references",
@@ -18,9 +17,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="book",
             name="activity",
-            field=models.CharField(
-                default="Yes", max_length=3, verbose_name="Avaliability"
-            ),
+            field=models.CharField(default="Yes", max_length=3, verbose_name="Avaliability"),
             preserve_default=False,
         ),
         migrations.AddField(
@@ -38,17 +35,13 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="book",
             name="date_of_addition",
-            field=models.DateField(
-                default=django.utils.timezone.now, verbose_name="Date of addition"
-            ),
+            field=models.DateField(default=django.utils.timezone.now, verbose_name="Date of addition"),
             preserve_default=False,
         ),
         migrations.AddField(
             model_name="book",
             name="format",
-            field=models.CharField(
-                default="75 x 15", max_length=7, verbose_name="Format"
-            ),
+            field=models.CharField(default="75 x 15", max_length=7, verbose_name="Format"),
             preserve_default=False,
         ),
         migrations.AddField(
@@ -73,9 +66,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name="book",
             name="rating",
-            field=models.DecimalField(
-                decimal_places=1, default="9", max_digits=2, verbose_name="Rating"
-            ),
+            field=models.DecimalField(decimal_places=1, default="9", max_digits=2, verbose_name="Rating"),
             preserve_default=False,
         ),
         migrations.AddField(
@@ -87,8 +78,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name="book",
             name="price",
-            field=models.DecimalField(
-                decimal_places=2, max_digits=5, verbose_name="Price"
-            ),
+            field=models.DecimalField(decimal_places=2, max_digits=5, verbose_name="Price"),
         ),
     ]

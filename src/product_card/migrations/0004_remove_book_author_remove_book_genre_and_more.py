@@ -5,17 +5,28 @@ import django.db.models.deletion
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
         ("references", "0011_remove_bookseries_book_name"),
         ("product_card", "0003_book_activity_book_age_restriction_and_more"),
     ]
 
     operations = [
-        migrations.RemoveField(model_name="book", name="author",),
-        migrations.RemoveField(model_name="book", name="genre",),
-        migrations.RemoveField(model_name="book", name="publishing_house",),
-        migrations.RemoveField(model_name="book", name="series",),
+        migrations.RemoveField(
+            model_name="book",
+            name="author",
+        ),
+        migrations.RemoveField(
+            model_name="book",
+            name="genre",
+        ),
+        migrations.RemoveField(
+            model_name="book",
+            name="publishing_house",
+        ),
+        migrations.RemoveField(
+            model_name="book",
+            name="series",
+        ),
         migrations.AddField(
             model_name="book",
             name="author",
