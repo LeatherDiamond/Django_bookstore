@@ -1,10 +1,10 @@
 #!/bin/bash
 set -e
 
-echo 'Wait...'
+echo 'Waiting...'
 sleep 25s
 
-echo 'Run Pytest'
+echo 'Runing Pytest'
 pytest . -s
 
 echo 'Success!'
