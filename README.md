@@ -1,7 +1,7 @@
 # Navigation
  
 * ***[Project description](#project-description)***
-   * ***[Notes](#notes)***
+   * ***[Note](#note)***
 * ***[Software version](#software-version)***
 * ***[Detailed functionality description](#detailed-functionality-description):***
    * ***[Shop roles and users](#1-shop-roles-and-users)***
@@ -32,7 +32,7 @@ Web applicaton of a bookstore intended for the sale of paper books online.
 The bookstore is a showcase of available products (catalogue) and provides all necessary information and tools for choosing and ordering goods.
 The bookstore enables shop personnel to receive and process orders and provides the possibility for the customers to follow the status of their orders.
 
-> ###### NOTES:
+> ###### NOTE:
 > * *You can familiarize with deployed version of the project by the following [link](https://alexanderdovguchits.pythonanywhere.com/).*
 
 # Software version:
