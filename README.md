@@ -231,7 +231,7 @@ git clone https://github.com/LeatherDiamond/Django_bookstore.git
 
 ***After completing all the steps, the project will be launched and available at `http://localhost:8000/`.***
 
-> ###### **NOTE:**
+> ###### **NOTES:**
 > The values for *"SOCIAL_AUTH_GOOGLE_OAUTH2_KEY"*, *"SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET" and "COURIER_AUTH_TOKEN"* will be available only after completting a few steps in the Google and Courier API consoles.
 > For more details, please refer to [GOOGLE](https://developers.google.com/identity/protocols/oauth2?hl=en) and [COURIER](https://www.courier.com/docs/) documentation.
 > 
