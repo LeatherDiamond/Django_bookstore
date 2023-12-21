@@ -2,6 +2,7 @@
  
 * ***[Project description](#project-description)***
    * ***[Notes](#notes)***
+* ***[Software version](#software-version)***
 * ***[Detailed functionality description](#detailed-functionality-description):***
    * ***[Shop roles and users](#1-shop-roles-and-users)***
    * ***[User profiles](#2-user-profiles)***
@@ -25,17 +26,15 @@ Web applicaton of a bookstore intended for the sale of paper books online.
 The bookstore is a showcase of available products (catalogue) and provides all necessary information and tools for choosing and ordering goods.
 The bookstore enables shop personnel to receive and process orders and provides the possibility for the customers to follow the status of their orders.
 
-Applied technologies: 
-- Python (>=3.9.7), 
-- SQLite, 
-- Django (>=4.1.1), 
-- HTML, 
-- CSS, 
-- JavaScript.
-
 > ###### NOTES:
 > * *The project contains a database file in the directory ***src->proj***. This database is just an example and contains 10 products as a demonstration of the functionality of the web application.*
 > * *You can familiarize with deployed version of the project by the following [link](https://alexanderdovguchits.pythonanywhere.com/).*
+
+# Software version:
+- Python: 3.11.3, 
+- Pip: 23.3.1,
+- Poetry: 1.7.1,
+- Django: 4.1.1, 
 
 # Detailed functionality description
 
