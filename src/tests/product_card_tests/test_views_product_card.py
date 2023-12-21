@@ -51,10 +51,10 @@ def test_create_product_card(app_login_manager, app_login_client, app_anonymous_
 
     data = {
         "name": sample_product_card.name,
-        "author": sample_product_card.author.first().id,
+        "author": [sample_product_card.author.first().id],
         "price": sample_product_card.price,
         "series": sample_product_card.series.id,
-        "genre": sample_product_card.genre.first().id,
+        "genre": [sample_product_card.genre.first().id],
         "publishing_year": sample_product_card.publishing_year,
         "pages": sample_product_card.pages,
         "binding": sample_product_card.binding,
@@ -102,10 +102,10 @@ def test_update_product_card(app_login_manager, app_login_client, app_anonymous_
 
     data = {
         "name": "Updated Name",
-        "author": sample_product_card.author.first().id,
+        "author": [sample_product_card.author.first().id],
         "price": sample_product_card.price,
         "series": sample_product_card.series.id,
-        "genre": sample_product_card.genre.first().id,
+        "genre": [sample_product_card.genre.first().id],
         "publishing_year": sample_product_card.publishing_year,
         "pages": sample_product_card.pages,
         "binding": sample_product_card.binding,
