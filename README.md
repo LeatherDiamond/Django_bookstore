@@ -16,6 +16,12 @@
    * ***[Home page](#10-home-page)***
    * ***[Directories](#11-directories)***
 * ***[How to start?](#how-to-start)***
+   * ***[Notes](#notes)***
+* ***[Creating superuser](#creating-superuser)***
+* ***[Database administration](#database-administration)***
+* ***[Code formatting and Quality checking tools](#code-formatting-and-quality-checking-tools)***
+* ***[Running tests inside the container](#running-tests-inside-the-container)***
+* ***[Running tests locally](#running-tests-locally)***
 * ***[Why should you try it?](#why-should-you-try-it)***
 * ***[License](#license)***
 
@@ -27,7 +33,6 @@ The bookstore is a showcase of available products (catalogue) and provides all n
 The bookstore enables shop personnel to receive and process orders and provides the possibility for the customers to follow the status of their orders.
 
 > ###### NOTES:
-> * *The project contains a database file in the directory ***src->proj***. This database is just an example and contains 10 products as a demonstration of the functionality of the web application.*
 > * *You can familiarize with deployed version of the project by the following [link](https://alexanderdovguchits.pythonanywhere.com/).*
 
 # Software version:
@@ -212,53 +217,105 @@ The bookstore enables shop personnel to receive and process orders and provides 
 
 # How to start?
 
-**1. Clone current repository on your local machine:**
+**1. Install [Docker](https://docs.docker.com/engine/install/) on your local machine, if it wasn't done yet, and launch it;**
+
+**2. Clone current repository on your local machine:**
 ```
 git clone https://github.com/LeatherDiamond/Django_bookstore.git
 ```
+***3. Navigate to the root directory of the project;***
 
-**2. Create and activate virtual environment on your machine:**
-```
-python -m venv environment_name
-.\env\Scripts\activate
-```
+***4. Configure `.env` file by assigning values to the variables defined in `.env.sample`;***
 
-**3. Install all requirements from "requirements.txt".**
-```
-pip install -r requirements.txt
-```
+***5. In the project directory, run `docker-compose up --build` to start the services;***
 
-**4. Provide mandatory data in rhe following files:**
- - [x] settings.py:
-    - Django SECRET_KEY;
-    - SOCIAL_AUTH_GOOGLE_OAUTH2_KEY;
-    - SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET;
-    
-*The last two options will allow users to login with google without additional registrations.*
+***After completing all the steps, the project will be launched and available at `http://localhost:8000/`.***
 
-***Note that *"SOCIAL_AUTH_GOOGLE_OAUTH2_KEY"* and *"SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET"* will be available only after following a few steps in Google API console. For more details please check [documentation](https://developers.google.com/identity/protocols/oauth2?hl=en).***
+> ###### **NOTE:**
+> The values for *"SOCIAL_AUTH_GOOGLE_OAUTH2_KEY"*, *"SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET" and "COURIER_AUTH_TOKEN"* will be available only after completting a few steps in the Google and Courier API consoles.
+> For more details, please refer to [GOOGLE](https://developers.google.com/identity/protocols/oauth2?hl=en) and [COURIER](https://www.courier.com/docs/) documentation.
+> 
+> *The project contains a database dump ---> ***src/proj/datadump.json***. This dump is just an example and contains 10 products as a demonstration of the functionality of the web application.*
+> 
+> *You can import the dump by processing the following command inside the ***container*** or just in the ***root*** directory of the project if you are going to launch it locally:*
+> ```
+> python src/manage.py loaddata datadump.json
+> ```
 
-   - [x] src -> order -> views.py:
-      - line 34 - client ("Courier" secret token that will allow the application to send notification mails to managers group when someone is creating an order);
-      - line 38 - email (Enter an email address where notifications will be sent);
-      - line 47 - link (Enter link that you want to be displayed in text of notification mail);
-      
-***Note that *"Courier secret token"* will be available only after following a few steps on [Courier website](https://www.courier.com/).***
 
-**5. Apply all migrations:**
-```
-python manage.py migrate
-```
+# Creating superuser
 
-**6. Create a superuser to have access to the admin panel.**
-```
-python manage.py createsuperuser
-```
+If you already followed the **[How to start](#how-to-start)** section steps, superuser will be automatically created in webapp container with the credentials provided in `.env` variables `DJANGO_SUPERUSER_USERNAME` and `DJANGO_SUPERUSER_PASSWORD`.
 
-**7. Launch the project on a development server to see all the functionality before deploying it on real server.**
+This superuser can be used to get access to the django admin panel while the project is launched in containers.
+If you want to create superuser locally you can also see how to do it in  **[Running tests](#running-tests-locally)** section below.
+
+
+# Database administration
+
+To administer the `PostgreSQL` database, you can use pgAdmin, which runs in a separate container. To access pgAdmin, follow these steps:
+
+1. Open a browser and go to `http://localhost:5050/`;
+2. Enter the login and password from your `.env` file to log in to pgAdmin;
+3. Create a new connection to the necessary database;
+4. Connect to the database and perform the necessary operations;
+
+
+# Code formatting and Quality checking tools
+
+1. Run `poetry shell` to activate environment if it's not active yet;
+2. Run `black . --check` to check if the code needs to be reformatted;
+3. Run `black .` to reformat the code;
+4. Run `flake8` to identify potential issues, such as syntax errors, code style violations, and other coding inconsistencies during the development process;
+
+
+# Running tests inside the container:
+1. Make sure that points 1-4 from ***[How to start](#how-to-start)*** section are already completed;
+2. Build images and run containers:
 ```
-python manage.py runserver
+docker compose up --build
 ```
+3. As soon as all containers started, enter the webapp container:
+```
+docker exec -it bookstore.webapp bash
+```
+4. After you entered the webapp container, launch tests:
+```
+pytest
+``` 
+
+# Running tests locally:
+1. Make sure that repository is already cloned on your computer, docker is launched, images already built and are ready for use and containers are not started yet;
+2. Navigate to the root derictory of the project;
+3. Configure `.env` file by assigning values to the variables defined in `.env.sample`;
+ > ###### **NOTE:**
+ > Set in **PRIMARY_DATABASE_URL** configuration for your local database (for example PRIMARY_DATABASE_URL=postgres://admin:admin@localhost:5432/testbase)
+4. Activate virtual environment:
+```
+poetry shell
+```
+5. Install all dependencies:
+```
+poetry install
+```
+6. Apply all migrations:
+```
+python src/manage.py migrate
+```
+7. Create default superuser in your database with credentials provided in your `.env` file:
+```
+python src/create_default_db_data.py
+```
+8. Launch the server:
+```
+python src/manage.py runserver
+```
+9. Start tests with the following command in console:
+```
+pytest
+```
+> ###### **NOTE:**
+> If you will try to put the command in another console, make sure that virtual environment is active - *point 4* of the current instruction.
 
 
 # Why should you try it?
